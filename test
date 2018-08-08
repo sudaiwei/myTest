@@ -1,0 +1,74 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+//        第1题--兔子
+      /*  System.out.println("请输入---");
+        Scanner   scan  = new Scanner(System.in);
+        int month = scan.nextInt();
+        //调用内部方法
+        Main rabbit = new Main();
+        int numbers =  rabbit.rabbit(month);
+        System.out.print(month + "月共有" + numbers + "只兔子" );*/
+
+
+//        第2题--质数
+        /*System.out.println("请输入数字");
+       Scanner scanner = new Scanner(System.in);
+         int  num = scanner.nextInt();
+        Main main = new Main() ;
+        String  nums = main.num(num);
+        System.out.print("质数为 " + nums);*/
+
+//        第3题--水仙花数
+        for(int num = 100; num < 1000; num ++){
+            if(theFllowerNum(num)){
+
+                System.out.println("水仙花数" + num);
+            }
+
+        }
+
+
+    }
+//        1.有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一
+//
+//        对兔子，假如兔子都不死，问每个月的兔子总数为多少？
+
+    //1-1,2-1,3-1+1,4-2+1,5-2+1+1,6-3+1,7-8+2+2,8-+
+    public  int rabbit(int i){
+        if(i == 1 || i == 2){
+            return  1;
+
+        }else {
+
+            return  rabbit(i-1) + rabbit(i-2);
+        }
+    }
+
+      public String   num(int num){
+
+          for (int i = 2; i < num; i++){
+              while(num % i == 0){
+                 return i+"*";
+
+              }
+
+          }
+          return  null;
+      }
+
+    public static boolean theFllowerNum(int num){
+        int x = num/100;
+        int s = num%100/10;
+        int h = num%10;
+        return Math.pow(x,3)
+                +Math.pow(s,3)
+                +Math.pow(h,3)== num? true:false;
+
+
+    }
+
+}
